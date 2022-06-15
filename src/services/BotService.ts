@@ -1,11 +1,11 @@
 import { Message } from 'discord.js';
 import { singleton, DiscordService, EventService } from 'hades';
-import { HadesBotService } from 'hades/dist/text-commands';
+import { TextCommandBotService } from "hades/dist/text-commands/services/TextCommandBotService";
 import { inject } from 'inversify';
 
 
 @singleton(BotService)
-export class BotService extends HadesBotService {
+export class BotService extends TextCommandBotService {
 
     @inject(DiscordService)
     discord: DiscordService;

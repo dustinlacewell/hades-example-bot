@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
 import { HadesContainer } from 'hades';
-import { defaultMappedTypes, TextCommandsInstaller } from 'hades/dist/text-commands'
+import { TextCommandsInstaller } from 'hades/dist/text-commands'
 import { createConnection } from 'typeorm';
 
 import { BotService } from './services/BotService';
@@ -17,9 +17,7 @@ import './text-commands';
     });
 
     const container = new HadesContainer({
-        installers: [new TextCommandsInstaller(
-            [...defaultMappedTypes]
-        )]
+        installers: [new TextCommandsInstaller()]
     });
     const bot = container.get(BotService);
     bot.login();
